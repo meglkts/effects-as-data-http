@@ -1,29 +1,37 @@
 const { get, post, put, remove } = require('simple-protocol-http').options
 const { merge } = require('./util')
 
-function httpGet ({url, headers, options}) {
-  const o1 = merge(options, {headers})
-  return get(o1, url)
+function httpGetFn (get, {url, headers, options}) {
+  const o = mergeOptions(options, headers)
+  return get(o, url)
 }
 
-function httpPost ({url, payload, headers, options}) {
-  const o1 = merge(options, {headers})
-  return post(o1, url, payload)
+function httpPostFn (post, {url, payload, headers, options}) {
+  const o = mergeOptions(options, headers)
+  return post(o, url, payload)
 }
 
-function httpPut ({url, payload, headers, options}) {
-  const o1 = merge(options, {headers})
-  return put(o1, url, payload)
+function httpPutFn (put, {url, payload, headers, options}) {
+  const o = mergeOptions(options, headers)
+  return put(o, url, payload)
 }
 
-function httpDelete ({url, headers, options}) {
-  const o1 = merge(options, {headers})
-  return remove(o1, url)
+function httpDeleteFn (remove, {url, headers, options}) {
+  const o = mergeOptions(options, headers)
+  return remove(o, url)
+}
+
+function mergeOptions (options = {}, headers = {}) {
+  return merge(options, {headers})
 }
 
 module.exports = {
-  httpPost,
-  httpPut,
-  httpGet,
-  httpDelete
+  httpPostFn,
+  httpPost: (payload) => httpPostFn(post, payload),
+  httpPutFn,
+  httpPut: (payload) => httpPutFn(put, payload),
+  httpGetFn,
+  httpGet: (payload) => httpGetFn(get, payload),
+  httpDeleteFn,
+  httpDelete: (payload) => httpDeleteFn(remove, payload)
 }
