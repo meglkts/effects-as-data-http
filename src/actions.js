@@ -42,9 +42,17 @@ function httpDelete (url, headers = {}, options = {}) {
   }
 }
 
+function rpc (url, fn, payload) {
+  return httpPost(url, {
+    fn,
+    payload
+  })
+}
+
 module.exports = {
   httpPost,
   httpPut,
   httpGet,
-  httpDelete
+  httpDelete,
+  rpc
 }
