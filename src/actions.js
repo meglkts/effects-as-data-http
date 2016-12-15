@@ -1,3 +1,9 @@
+const { merge } = require('./util')
+
+const defaultHeaders = {
+  'Content-Type': 'application/json;charset=UTF-8'
+}
+
 function httpGet (url, headers = {}, options = {}) {
   return {
     type: 'httpGet',
@@ -12,7 +18,7 @@ function httpPost (url, payload, headers = {}, options = {}) {
     type: 'httpPost',
     url,
     payload,
-    headers,
+    headers: merge(defaultHeaders, headers),
     options
   }
 }
@@ -22,7 +28,7 @@ function httpPut (url, payload, headers = {}, options = {}) {
     type: 'httpPut',
     url,
     payload,
-    headers,
+    headers: merge(defaultHeaders, headers),
     options
   }
 }

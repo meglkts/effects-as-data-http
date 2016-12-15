@@ -1,6 +1,10 @@
 const { httpGet, httpDelete, httpPost, httpPut } = require('./actions')
 const { deepEqual } = require('assert')
 
+const defaultHeaders = {
+  'Content-Type': 'application/json;charset=UTF-8'
+}
+
 describe('actions', () => {
   describe('httpGet', () => {
     it('should return an httpGet object', () => {
@@ -14,9 +18,9 @@ describe('actions', () => {
       deepEqual(actual, expected)
     })
 
-    it('should return an httpGet ', () => {
+    it('should return an httpGet', () => {
       const actual = httpGet('http://www.example.com', {
-        'Content-type': 'application/json'
+        'Content-Type': 'application/json'
       }, {
         credentials: 'include'
       })
@@ -25,7 +29,7 @@ describe('actions', () => {
         type: 'httpGet',
         url: 'http://www.example.com',
         headers: {
-          'Content-type': 'application/json'
+          'Content-Type': 'application/json'
         },
         options: {
           credentials: 'include'
@@ -48,9 +52,9 @@ describe('actions', () => {
       deepEqual(actual, expected)
     })
 
-    it('should return an httpDelete ', () => {
+    it('should return an httpDelete', () => {
       const actual = httpDelete('http://www.example.com', {
-        'Content-type': 'application/json'
+        'Content-Type': 'application/json'
       }, {
         credentials: 'include'
       })
@@ -59,7 +63,7 @@ describe('actions', () => {
         type: 'httpDelete',
         url: 'http://www.example.com',
         headers: {
-          'Content-type': 'application/json'
+          'Content-Type': 'application/json'
         },
         options: {
           credentials: 'include'
@@ -77,15 +81,15 @@ describe('actions', () => {
         type: 'httpPost',
         url: 'http://www.example.com',
         payload: {foo: 'bar'},
-        headers: {},
+        headers: defaultHeaders,
         options: {}
       }
       deepEqual(actual, expected)
     })
 
-    it('should return an httpPost ', () => {
+    it.only('should return an httpPost', () => {
       const actual = httpPost('http://www.example.com', {foo: 'bar'}, {
-        'Content-type': 'application/json'
+        'Content-Type': 'text/html'
       }, {
         credentials: 'include'
       })
@@ -95,7 +99,7 @@ describe('actions', () => {
         url: 'http://www.example.com',
         payload: {foo: 'bar'},
         headers: {
-          'Content-type': 'application/json'
+          'Content-Type': 'text/html'
         },
         options: {
           credentials: 'include'
@@ -113,15 +117,15 @@ describe('actions', () => {
         type: 'httpPut',
         url: 'http://www.example.com',
         payload: {foo: 'bar'},
-        headers: {},
+        headers: defaultHeaders,
         options: {}
       }
       deepEqual(actual, expected)
     })
 
-    it('should return an httpPut ', () => {
+    it('should return an httpPut', () => {
       const actual = httpPut('http://www.example.com', {foo: 'bar'}, {
-        'Content-type': 'application/json'
+        'Content-Type': 'text/html'
       }, {
         credentials: 'include'
       })
@@ -131,7 +135,7 @@ describe('actions', () => {
         url: 'http://www.example.com',
         payload: {foo: 'bar'},
         headers: {
-          'Content-type': 'application/json'
+          'Content-Type': 'text/html'
         },
         options: {
           credentials: 'include'
