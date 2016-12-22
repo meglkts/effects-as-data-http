@@ -1,6 +1,6 @@
 {
   "name": "effects-as-data-http",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Http for effects-as-data",
   "main": "src/index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "author": "orourkedd",
   "license": "MIT",
   "dependencies": {
-    "simple-protocol-http": "^0.9.0"
+    "simple-protocol-http": "^0.11.1"
   },
   "standard": {
     "globals": [
