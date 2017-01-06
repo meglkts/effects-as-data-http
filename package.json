@@ -1,8 +1,8 @@
 {
   "name": "effects-as-data-http",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Http for effects-as-data",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest",
     "transpile": "babel src --out-dir lib --source-maps",
