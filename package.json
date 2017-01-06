@@ -1,11 +1,11 @@
 {
   "name": "effects-as-data-http",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Http for effects-as-data",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
-    "transpile": "babel src --out-dir lib --source-maps",
+    "transpile": "babel src --out-dir lib --source-maps --presets=es2015",
     "precommit": "standard; npm run transpile && npm test && uver && git add -A",
     "deploy": "standard && npm run transpile && npm test",
     "publish-please": "publish-please",
