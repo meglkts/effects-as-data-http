@@ -1,3 +1,5 @@
+Deprecated: This is now built into effects-as-data core.
+
 # Effects as Data Http
 
 Everything you need for handling HTTP effects.
